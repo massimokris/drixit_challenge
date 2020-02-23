@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 require('../lib/mongo');
-const User = require('../services/User');
+const User = require('../schemas/User');
 const users =  require('./users');
 
 const dbConnection = mongoose.connection;
