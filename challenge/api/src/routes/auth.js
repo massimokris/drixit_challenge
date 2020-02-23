@@ -2,6 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const { config } = require("../config");
 const User = require("../schemas/User");
+const verifyToken = require("../utils/verifyToken");
 
 function authApi(app) {
   const router = express.Router();
@@ -29,19 +30,8 @@ function authApi(app) {
     res.status(200).json({ auth: true, token });
   });
 
-  router.get("/users/me", async (req, res, next) => {
-    const token = req.headers["x-access-token"];
-
-    if (!token) {
-      res.status(401).json({
-        auth: false,
-        message: "Unauthorized"
-      });
-    }
-
-    const decoded = jwt.verify(token, config.authJwtSecret);
-
-    const user = await User.findById(decoded.id, { password: 0 });
+  router.get("/users/me", verifyToken, async (req, res, next) => {
+    const user = await User.findById(req.userId, { password: 0 });
 
     if (!user) {
       return res.status(404).send("User not found");
