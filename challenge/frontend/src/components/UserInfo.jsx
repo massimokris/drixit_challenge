@@ -1,20 +1,24 @@
 import React from "react";
-import '../assets/styles/components/UserInfo.scss';
+import "../assets/styles/components/UserInfo.scss";
 
-const UserInfo = () => {
-  return (
+const UserInfo = props => {
+  const { user } = props;
+
+  return !user.name ? (
+    <h1>Loading...</h1>
+  ) : (
     <div className="info__container">
       <img
         className="info__container--img"
-        src=""
+        src={user.avatar}
         alt="user-image"
       />
       <h2>
-        Massimo Di Berardino
+        {user.name} {user.surname}
       </h2>
-      <h3>example@email.com</h3>
-      <h4>23 Years old</h4>
-      <h4>Admin</h4>
+      <h3>{user.email}</h3>
+      <h4>{user.age} Years old</h4>
+      <h4>{user.role}</h4>
     </div>
   );
 };
