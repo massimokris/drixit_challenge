@@ -19,7 +19,7 @@ const UserInfo = props => {
       </h2>
       <h3>{user.email}</h3>
       <h4>{user.age} Years old</h4>
-      <h4>{user.role}</h4>
+      <h4>{user.role.toUpperCase()}</h4>
     </div>
   );
 };
