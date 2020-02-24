@@ -1,4 +1,5 @@
 import axios from "axios";
+import swal from "sweetalert";
 
 export const loginRequest = payload => ({
   type: "LOGIN_REQUEST",
@@ -17,9 +18,12 @@ export const loginUser = ({ email, password }) => async dispatch => {
     .then(async ({ data }) => {
       document.cookie = `token=${data.token}; Max-Age=7400`;
       dispatch(getUser(data.token));
+      window.location = "/user-info";
     })
-    // TODO handle authenticate errors with an alert
-    .catch(err => console.log(err.message));
+    .catch(async err => {
+      alert("The email address or password is incorrect. Please retry...");
+      console.log(err.message);
+    });
 };
 
 export const getUser = token => async dispatch => {
@@ -39,6 +43,9 @@ export const getUser = token => async dispatch => {
       localStorage.setItem("role", data.role);
       dispatch(loginRequest(data));
     })
-    // TODO handle get user errors with an alert
-    .catch(err => console.log(err));
+    .catch(async err => {
+      alert("Error during the authentication");
+      console.log(err);
+      window.location = "/login";
+    });
 };

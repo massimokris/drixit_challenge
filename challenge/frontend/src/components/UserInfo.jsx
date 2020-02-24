@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import swet from 'sweetalert';
 import { getUser } from "../actions";
 import "../assets/styles/components/UserInfo.scss";
 
