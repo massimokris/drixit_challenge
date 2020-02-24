@@ -11,6 +11,19 @@ const Login = () => {
             ...form,
             [event.target.name]: event.target.value
         });
+        if(event.target.name === "email") validEmail(event.target.value);
+    }
+
+    const validEmail = email => {
+        const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;  
+
+        if(email.match(pattern)){
+            document.getElementsByClassName('button')[0].style.display = 'block';
+            document.getElementsByClassName('input')[1].style.display = 'block';
+        } else {
+            document.getElementsByClassName('button')[0].style.display = 'none';
+            document.getElementsByClassName('input')[1].style.display = 'none';
+        }
     }
 
     const handleSubmit = event => {
