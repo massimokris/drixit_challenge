@@ -1,9 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getUser } from "../actions";
 import "../assets/styles/components/UserInfo.scss";
 
 const UserInfo = props => {
   const { user } = props;
+
+  const handleUser = () => {
+    if (!user.name) {
+      let token = document.cookie;
+      if (token) {
+        token = token.split("=");
+        props.getUser(token[1]);
+      } else {
+        alert('You must be loged');
+        window.location = "/login";
+      }
+    }
+  };
+  handleUser();
 
   return !user.name ? (
     <h1>Loading...</h1>
@@ -30,4 +45,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(UserInfo);
+const mapDispatchToProps = {
+  getUser
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

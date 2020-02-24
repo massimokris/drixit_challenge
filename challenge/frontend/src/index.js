@@ -7,7 +7,14 @@ import reducer from "./reducers";
 import App from "./routes/App";
 
 const initialState = {
-  user: {}
+  user: {
+    avatar: localStorage.getItem("avatar"),
+    name: localStorage.getItem("name"),
+    surname: localStorage.getItem("surname"),
+    email: localStorage.getItem("email"),
+    age: localStorage.getItem("age"),
+    role: localStorage.getItem("role")
+  }
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;

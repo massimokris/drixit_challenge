@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: ["babel-polyfill", "./src/index.js"],
@@ -53,7 +53,7 @@ module.exports = {
     ]
   },
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -61,7 +61,7 @@ module.exports = {
       filename: "./index.html"
     }),
     new MiniCssExtractPlugin({
-        filename: 'assests/[name].css'
+      filename: "assests/[name].css"
     })
   ]
 };
