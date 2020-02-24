@@ -1,0 +1,14 @@
+{
+  "name": "Drixit Challenge",
+  "version": 2,
+  "builds": [{ "src": "index.js", "use": "@now/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/index.js" }],
+  "env": {
+    "DB_USER": "@drixit-challenge-db-user",
+    "DB_PASSWORD": "@drixit-challenge-db-password",
+    "DB_HOST": "@drixit-challenge-db-host",
+    "DB_NAME": "@drixit-challenge-db-name",
+    "AUTH_JWT_SECRET": "@drixit-challenge-secret",
+    "TWO_HOURS_IN_SEC": "@drixit-challenge-expires"
+  }
+}
