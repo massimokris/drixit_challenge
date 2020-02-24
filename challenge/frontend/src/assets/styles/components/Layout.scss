@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+}
+
+#app {
+  background: #083d77;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 30px;
+  min-height: 700px;
+  font-family: "Muli", sans-serif;
+}
+
+#app a {
+  color: white;
+  text-decoration: none;
+}
+
+#app a:hover {
+  text-decoration: underline;
+}

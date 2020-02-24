@@ -1,0 +1,67 @@
+.login__container {
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: black 0 0 18px 3px;
+  border: 1px solid white;
+  border-radius: 20px;
+  color: white;
+  padding: 60px 68px 40px;
+  min-height: 350px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.login__container--form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__container--form label {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  background-color: transparent;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  border-bottom: 2px solid white;
+  font-size: 16px;
+  font-family: "Muli", sans-serif;
+  margin-bottom: 20px;
+  padding: 0px 20px;
+  outline: none;
+  height: 50px;
+  color: white;
+}
+
+.input[name="password"] {
+  display: none;
+}
+
+::placeholder {
+  color: white;
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Muli", sans-serif;
+  height: 50px;
+  letter-spacing: 1px;
+  margin: 10px 0px;
+  outline: none;
+  display: none;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  box-shadow: black 0 0 10px 1px;
+}
