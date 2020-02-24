@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { loginRequest } from '../actions';
+import { connect } from 'react-redux';
 import '../assets/styles/components/Login.scss';
 
-const Login = () => {
+const Login = props => {
     const [form, setValues] = useState({
         email: ""
     });
@@ -28,7 +30,7 @@ const Login = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log(form);
+        props.loginRequest(form);
     }
 
     return (
@@ -59,4 +61,8 @@ const Login = () => {
     );
 }
 
-export default Login;
+const mapDispatchToProps = {
+    loginRequest
+};
+
+export default connect(null, mapDispatchToProps)(Login);
